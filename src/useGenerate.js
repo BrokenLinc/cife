@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const generateApiUrl = `${process.env.REACT_APP_SERVER_URL}/generate`;
+const generateApiUrl = `/api/generate`;
 
 const useGenerate = () => {
   const [data, setData] = React.useState('');
