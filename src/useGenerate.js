@@ -3,19 +3,23 @@ import axios from 'axios';
 
 const generateApiUrl = `/api/generate`;
 
+// TODO: consider using https://www.npmjs.com/package/axios-hooks
 const useGenerate = () => {
   const [data, setData] = React.useState('');
   const [error, setError] = React.useState(null);
   const [fetching, setFetching] = React.useState(false);
   const [loaded, setLoaded] = React.useState(false);
+  const [variables, setVariables] = React.useState({});
 
-  const fetch = async (props) => {
+  const fetch = async (variables) => {
     const {
       length = 10,
       text = '',
-    } = props;
+    } = variables;
     setFetching(true);
     setError(undefined);
+    setData('');
+    setVariables(variables);
     try {
       const response = await axios.post(generateApiUrl, {
         length,
@@ -39,6 +43,7 @@ const useGenerate = () => {
     error,
     fetching,
     loaded,
+    variables,
   };
   return [fetch, response];
 };

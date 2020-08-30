@@ -24,16 +24,15 @@ const Generate = () => {
   };
 
   return (
-    <Box bg="pink.300" minHeight="100%">
+    <Box bg="teal.300" minHeight="100%">
       <Box maxWidth={550} p={4} mx="auto">
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl isRequired mb={4}>
-            <FormLabel htmlFor="text">Prompt</FormLabel>
+            <FormLabel htmlFor="text">Prompt text</FormLabel>
             <Textarea
               id="text"
               name="text"
               ref={register({ required: true })}
-              defaultValue="The quick brown fox jumps over the lazy dog."
               resize="none"
               height={200}
               borderColor="transparent"
@@ -41,9 +40,9 @@ const Generate = () => {
             />
             {errors.text && <FormErrorMessage>Prompt text is required!</FormErrorMessage>}
           </FormControl>
-          <Button type="submit" isLoading={generation.fetching} mb={4}>Generate</Button>
+          <Button type="submit" variantColor="teal" isLoading={generation.fetching} mb={4}>Generate</Button>
           {!!generation.data && (
-            <p>{generation.data}</p>
+            <p><b>{generation.variables.text}</b> {generation.data}</p>
           )}
           {!!generation.error && (
             <Alert status="error">
