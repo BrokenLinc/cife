@@ -38,6 +38,6 @@
     ]
   },
   "devDependencies": {
-    "vercel": "^20.1.0"
+    "vercel": "^20.1.1"
   }
 }

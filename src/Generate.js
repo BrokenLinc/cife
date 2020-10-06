@@ -20,7 +20,7 @@ const Generate = () => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
-    return generate({ length: 500, ...data });
+    return generate({ length: 1000, ...data });
   };
 
   return (
